@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dala Manico Lueji de Carvalho | Apresentação Estratégica</title>
+    <!-- Carrega o Tailwind CSS para responsividade e utilitários -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos Customizados (Baseados nos Requisitos) */
+        body { 
+            margin: 0; 
+            font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif; 
+            background: #0e0f13; 
+            color: #e6e6e6; 
+            line-height: 1.7; 
+        }
+        
+        /* Uso do Inter font-family */
+        * {
+            font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        header { 
+            padding: 80px 20px; 
+            text-align: center; 
+            background: radial-gradient(circle at top, #1c1f2a, #0e0f13); 
+            position: relative;
+        }
+        header h1 { 
+            font-size: clamp(1.8rem, 5vw, 2.6rem); /* Responsividade para H1 */
+            margin-bottom: 10px; 
+        }
+        header h2 { 
+            font-weight: 300; 
+            font-size: clamp(1rem, 3vw, 1.2rem); /* Responsividade para H2 */
+            color: #b3b3b3; 
+        }
+        
+        section { 
+            max-width: 960px; 
+            margin: auto; 
+            padding: 60px 20px; 
+        }
+        section h3 { 
+            font-size: clamp(1.4rem, 4vw, 1.8rem); /* Responsividade para H3 */
+            margin-bottom: 20px; 
+            color: #ffffff; 
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 5px;
+        }
+        .card { 
+            background: #151824; 
+            padding: 30px; 
+            border-radius: 16px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); /* Sombra mais densa */
+            margin-bottom: 40px; 
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card p { 
+            color: #d0d0d0; 
+        }
+        
+        /* Botão estilizado */
+        a.button { 
+            display: inline-block; 
+            margin-top: 20px; 
+            padding: 14px 26px; 
+            border-radius: 999px; 
+            text-decoration: none; 
+            background: linear-gradient(135deg, #ffcc00, #ff6600); 
+            color: #000; 
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+        }
+        a.button:hover {
+            background: linear-gradient(135deg, #ffde59, #ff7f2a); 
+            transform: scale(1.05);
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 40px 20px; 
+            font-size: 0.9rem; 
+            color: #999; 
+            background: #0b0c10; 
+            border-top: 1px solid #1c1f2a;
+        }
+
+        /* Classes de Visibilidade da Língua */
+        #content-container[data-lang="pt"] .lang-en,
+        #content-container[data-lang="en"] .lang-pt {
+            display: none;
+        }
+        #content-container[data-lang="pt"] .lang-pt,
+        #content-container[data-lang="en"] .lang-en {
+            display: block;
+        }
+
+        /* Estilos do Menu Hambúrguer (Mobile First) */
+        #lang-menu-toggle {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            z-index: 50;
+        }
+        #lang-menu-toggle button {
+            background: #1c1f2a;
+            color: #ffcc00;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            font-weight: 600;
+        }
+        #lang-dropdown {
+            position: absolute;
+            top: 75px;
+            right: 20px;
+            background: #252836;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+            min-width: 150px;
+            z-index: 40;
+            display: none;
+        }
+        #lang-dropdown.active {
+            display: block;
+        }
+        #lang-dropdown button {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            text-align: left;
+            background: none;
+            border: none;
+            color: #e6e6e6;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        #lang-dropdown button:hover {
+            background: #33364a;
+        }
+        #lang-dropdown button:first-child { border-top-left-radius: 8px; border-top-right-radius: 8px; }
+        #lang-dropdown button:last-child { border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Container Principal para Controle de Idioma -->
+    <div id="content-container" data-lang="pt">
+
+        <!-- Menu de Idioma (Menu Hambúrguer) -->
+        <div id="lang-menu-toggle">
+            <button onclick="toggleDropdown()">
+                <span class="lang-pt">Idioma (PT)</span>
+                <span class="lang-en">Language (EN)</span>
+                &#9776; <!-- Ícone Hambúrguer -->
+            </button>
+            <div id="lang-dropdown">
+                <button onclick="setLanguage('pt')">Português (PT)</button>
+                <button onclick="setLanguage('en')">English (EN)</button>
+            </div>
+        </div>
+
+        <!-- Cabeçalho Institucional -->
+        <header>
+            <h1 class="lang-pt">Dala Manico Lueji de Carvalho</h1>
+            <h1 class="lang-en">Dala Manico Lueji de Carvalho</h1>
+            <h2 class="lang-pt">Artista, Educador e Investigador Transdisciplinar | Angola</h2>
+            <h2 class="lang-en">Artist, Educator, and Transdisciplinary Researcher | Angola</h2>
+        </header>
+
+        <!-- Seção: Proposta de Apresentação e Diálogo Institucional -->
+        <section>
+            
+            <div class="card">
+                <h3 class="lang-pt">Proposta de Apresentação e Diálogo Institucional</h3>
+                <h3 class="lang-en">Proposal for Institutional Presentation and Dialogue</h3>
+                
+                <p class="lang-pt font-semibold text-lg mb-4">Arte, Ciência, Tecnologia e Impacto Social numa Abordagem Sistémica Transdisciplinar</p>
+                <p class="lang-en font-semibold text-lg mb-4">Art, Science, Technology, and Social Impact in a Transdisciplinary Systems Approach</p>
+
+                <p class="lang-pt text-sm font-light mb-4">À<br>Fundação Visconde de Cairu<br>Brasil</p>
+                <p class="lang-en text-sm font-light mb-4">To<br>Fundação Visconde de Cairu<br>Brazil</p>
+
+                <p class="lang-pt">Prezados Senhores,</p>
+                <p class="lang-en">Dear Sirs,</p>
+
+                <p class="lang-pt">Dirijo-me respeitosamente a esta distinta Fundação na sequência da minha participação como palestrante no IV Congresso Internacional Digital Cairu: Os Desafios no Desenvolvimento Económico e Social dos Continentes, certificada por esta instituição.</p>
+                <p class="lang-en">I respectfully address this distinguished Foundation following my participation as a speaker at the IV Cairu International Digital Congress: The Challenges in Economic and Social Development of the Continents, certified by this institution.</p>
+                
+                <p class="lang-pt">A referida participação constituiu, para mim, não apenas um momento de intercâmbio académico, mas sobretudo uma oportunidade de aprofundamento do diálogo entre reflexão científica, prática social e inovação aplicada, valores que reconheço como centrais à missão da Fundação Visconde de Cairu.</p>
+                <p class="lang-en">This participation constituted, for me, not only a moment of academic exchange but, above all, an opportunity to deepen the dialogue between scientific reflection, social practice, and applied innovation, values that I recognize as central to the mission of the Fundação Visconde de Cairu.</p>
+            </div>
+
+            <!-- 1. Identidade Académica e Artística -->
+            <div class="card">
+                <h3 class="lang-pt">1. Identidade Académica e Artística</h3>
+                <h3 class="lang-en">1. Academic and Artistic Identity</h3>
+
+                <p class="lang-pt">Sou Dala Manico Lueji de Carvalho, angolano, licenciado em Música pelo Instituto Superior de Artes (ISART), actualmente Faculdade de Artes da Universidade de Luanda (FaArtes). A minha formação artística constitui o eixo fundador da minha actuação profissional e intelectual, permitindo-me compreender a arte como um sistema estruturante de comunicação, organização simbólica e mediação social.</p>
+                <p class="lang-en">I am Dala Manico Lueji de Carvalho, Angolan, with a degree in Music from the Higher Institute of Arts (ISART), currently the Faculty of Arts of the University of Luanda (FaArtes). My artistic background is the founding axis of my professional and intellectual work, allowing me to understand art as a structuring system of communication, symbolic organization, and social mediation.</p>
+
+                <p class="lang-pt mt-4 font-bold">🎥 Concerto musical – Música Africana</p>
+                <p class="lang-en mt-4 font-bold">🎥 Musical Concert – African Music</p>
+                <a href="https://www.youtube.com/watch?v=example-concert" target="_blank" class="button">
+                    <span class="lang-pt">Ver Registo Público (YouTube)</span>
+                    <span class="lang-en">View Public Record (YouTube)</span>
+                </a>
+            </div>
+
+            <!-- 2. Visão Sistémica Transdisciplinar -->
+            <div class="card">
+                <h3 class="lang-pt">2. Visão Sistémica Transdisciplinar</h3>
+                <h3 class="lang-en">2. Transdisciplinary Systems View</h3>
+
+                <p class="lang-pt">Ao longo da minha trajectória académica, artística e investigativa, venho desenvolvendo uma abordagem sistémica transdisciplinar, orientada à concepção de soluções digitais aplicadas que integrem arte, ciência e tecnologia como instrumentos complementares de transformação social.</p>
+                <p class="lang-en">Throughout my academic, artistic, and research trajectory, I have been developing a transdisciplinary systems approach, aimed at designing applied digital solutions that integrate art, science, and technology as complementary instruments for social transformation.</p>
+
+                <p class="lang-pt">Parto do princípio de que os desafios contemporâneos — nas áreas da educação, saúde, ciência, ambiente e bem-estar — exigem arquitecturas de pensamento integradas, capazes de dialogar com a complexidade dos sistemas humanos e naturais, sobretudo em contextos onde a realidade social se apresenta como um campo vivo de experimentação e aprendizagem.</p>
+                <p class="lang-en">I start from the principle that contemporary challenges — in the areas of education, health, science, environment, and well-being — require integrated thought architectures, capable of engaging with the complexity of human and natural systems, especially in contexts where social reality presents itself as a living field of experimentation and learning.</p>
+                
+                <p class="lang-pt font-light italic mt-4 text-sm">Neste enquadramento, Angola surge não apenas como contexto de aplicação, mas como território estratégico de investigação aplicada, validação e impacto, em diálogo com instituições parceiras internacionais.</p>
+                <p class="lang-en font-light italic mt-4 text-sm">In this context, Angola emerges not only as a context for application but as a strategic territory for applied research, validation, and impact, in dialogue with international partner institutions.</p>
+            </div>
+
+            <!-- 3. Protótipo de Impacto Social – Educação Inclusiva (Autismo) -->
+            <div class="card">
+                <h3 class="lang-pt">3. Protótipo de Impacto Social – Educação Inclusiva (Autismo)</h3>
+                <h3 class="lang-en">3. Social Impact Prototype – Inclusive Education (Autism)</h3>
+
+                <p class="lang-pt">No domínio da educação inclusiva, desenvolvi uma plataforma digital orientada ao apoio de pessoas com Transtorno do Espectro do Autismo (TEA), concebida como ferramenta pedagógica complementar, integrando princípios de acessibilidade cognitiva, interacção visual assistida e organização estruturada de estímulos.</p>
+                <p class="lang-en">In the field of inclusive education, I developed a digital platform oriented toward supporting people with Autism Spectrum Disorder (ASD), conceived as a complementary pedagogical tool, integrating principles of cognitive accessibility, assisted visual interaction, and structured organization of stimuli.</p>
+
+                <p class="lang-pt mt-4 font-bold">📱 Aplicativo / Plataforma para Autismo</p>
+                <p class="lang-en mt-4 font-bold">📱 Application / Platform for Autism</p>
+                <a href="https://app.example.com/autism-platform" target="_blank" class="button">
+                    <span class="lang-pt">Explorar Plataforma</span>
+                    <span class="lang-en">Explore Platform</span>
+                </a>
+            </div>
+
+            <!-- 4. Protótipo Científico-Educativo – Simulador do Sistema Solar com IA -->
+            <div class="card">
+                <h3 class="lang-pt">4. Protótipo Científico-Educativo – Simulador do Sistema Solar com IA</h3>
+                <h3 class="lang-en">4. Scientific-Educational Prototype – Solar System Simulator with AI</h3>
+
+                <p class="lang-pt">No campo da educação científica, desenvolvi um Simulador do Sistema Solar com integração de Inteligência Artificial, concebido como ferramenta interactiva de apoio ao ensino e à exploração conceptual de fenómenos astronómicos.</p>
+                <p class="lang-en">In the field of scientific education, I developed a Solar System Simulator with Artificial Intelligence integration, designed as an interactive tool to support teaching and conceptual exploration of astronomical phenomena.</p>
+
+                <p class="lang-pt">O projecto articula visualização dinâmica, modelação conceptual e IA como instrumento de mediação pedagógica, promovendo aprendizagem significativa e pensamento científico.</p>
+                <p class="lang-en">The project articulates dynamic visualization, conceptual modeling, and AI as an instrument of pedagogical mediation, promoting meaningful learning and scientific thinking.</p>
+
+                <p class="lang-pt mt-4 font-bold">🌌 Simulador do Sistema Solar com IA</p>
+                <p class="lang-en mt-4 font-bold">🌌 Solar System Simulator with AI</p>
+                <a href="https://sim.example.com/solar-system-ai" target="_blank" class="button">
+                    <span class="lang-pt">Aceder ao Simulador</span>
+                    <span class="lang-en">Access Simulator</span>
+                </a>
+            </div>
+
+            <!-- 5. Transparência Técnica e Repositórios Públicos -->
+            <div class="card">
+                <h3 class="lang-pt">5. Transparência Técnica e Repositórios Públicos</h3>
+                <h3 class="lang-en">5. Technical Transparency and Public Repositories</h3>
+
+                <p class="lang-pt">Os protótipos referidos encontram-se organizados em repositórios públicos, assegurando transparência técnica, possibilidade de análise colaborativa e potencial de expansão conjunta:</p>
+                <p class="lang-en">The prototypes mentioned are organized in public repositories, ensuring technical transparency, the possibility of collaborative analysis, and the potential for joint expansion:</p>
+
+                <p class="lang-pt mt-4 font-bold">💻 Repositórios GitHub</p>
+                <p class="lang-en mt-4 font-bold">💻 GitHub Repositories</p>
+                <a href="https://github.com/DalaManico/repos" target="_blank" class="button">
+                    <span class="lang-pt">Ver Código Fonte (GitHub)</span>
+                    <span class="lang-en">View Source Code (GitHub)</span>
+                </a>
+            </div>
+
+            <!-- 6. Perspectiva de Cooperação Institucional -->
+            <div class="card">
+                <h3 class="lang-pt">6. Perspectiva de Cooperação Institucional</h3>
+                <h3 class="lang-en">6. Institutional Cooperation Perspective</h3>
+
+                <p class="lang-pt">Por meio desta comunicação, manifesto o meu interesse em estabelecer um diálogo institucional construtivo com a Fundação Visconde de Cairu, visando possíveis formas de cooperação, nomeadamente:</p>
+                <p class="lang-en">Through this communication, I express my interest in establishing a constructive institutional dialogue with the Fundação Visconde de Cairu, aiming for possible forms of cooperation, namely:</p>
+
+                <ul class="list-disc list-inside ml-4 mt-4 lang-pt">
+                    <li>Projectos piloto de carácter científico e educativo</li>
+                    <li>Cooperação académica Angola–Brasil</li>
+                    <li>Transferência de conhecimento e inovação social</li>
+                    <li>Experimentação de plataformas digitais em contextos reais</li>
+                    <li>Produção conjunta de conhecimento transdisciplinar</li>
+                </ul>
+                <ul class="list-disc list-inside ml-4 mt-4 lang-en">
+                    <li>Pilot projects of a scientific and educational nature</li>
+                    <li>Academic cooperation Angola–Brazil</li>
+                    <li>Transfer of knowledge and social innovation</li>
+                    <li>Experimentation with digital platforms in real contexts</li>
+                    <li>Joint production of transdisciplinary knowledge</li>
+                </ul>
+
+                <p class="lang-pt mt-4">Acredito que uma articulação institucional estruturada poderá gerar benefícios mútuos, tanto no plano científico quanto no impacto social.</p>
+                <p class="lang-en mt-4">I believe that a structured institutional articulation can generate mutual benefits, both scientifically and in terms of social impact.</p>
+            </div>
+
+            <!-- 7. Considerações Finais -->
+            <div class="card">
+                <h3 class="lang-pt">7. Considerações Finais</h3>
+                <h3 class="lang-en">7. Final Considerations</h3>
+
+                <p class="lang-pt">Coloco-me inteiramente à disposição para uma reunião institucional, apresentação detalhada dos projectos ou construção conjunta de propostas específicas, alinhadas à missão e aos valores da Fundação Visconde de Cairu.</p>
+                <p class="lang-en">I place myself entirely at your disposal for an institutional meeting, detailed presentation of the projects, or joint construction of specific proposals, aligned with the mission and values of the Fundação Visconde de Cairu.</p>
+
+                <p class="lang-pt">Renovo os meus agradecimentos pela oportunidade proporcionada no âmbito do IV Congresso Internacional Digital Cairu e pela relevância do trabalho desenvolvido por esta Fundação.</p>
+                <p class="lang-en">I renew my thanks for the opportunity provided within the scope of the IV Cairu International Digital Congress and for the relevance of the work developed by this Foundation.</p>
+            </div>
+
+        </section>
+
+        <!-- Rodapé e Contactos -->
+        <footer>
+            <div class="mb-4">
+                <p class="lang-pt">Com elevada estima e consideração,</p>
+                <p class="lang-en">With high esteem and consideration,</p>
+            </div>
+            
+            <p class="font-bold text-lg text-white">Dala Manico Lueji de Carvalho</p>
+            <p class="mb-4 text-sm italic lang-pt">Artista, Educador e Investigador Transdisciplinar | Angola</p>
+            <p class="mb-4 text-sm italic lang-en">Artist, Educator, and Transdisciplinary Researcher | Angola</p>
+
+            <div class="flex justify-center space-x-6">
+                <a href="mailto:dala.cure.os@gmail.com" class="text-white hover:text-[#ffcc00] transition duration-200">
+                    <span class="font-semibold lang-pt">📧 E-mail</span>
+                    <span class="font-semibold lang-en">📧 E-mail</span>
+                </a>
+                <a href="tel:+244924988058" class="text-white hover:text-[#ffcc00] transition duration-200">
+                    <span class="font-semibold lang-pt">🌍 WhatsApp</span>
+                    <span class="font-semibold lang-en">🌍 WhatsApp</span>
+                </a>
+            </div>
+
+            <p class="mt-4 text-xs">© 2025. Todos os direitos reservados. Design Estratégico.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Função para alternar entre os idiomas
+        function setLanguage(lang) {
+            const container = document.getElementById('content-container');
+            container.setAttribute('data-lang', lang);
+            document.documentElement.lang = lang; // Atualiza a tag HTML
+            closeDropdown();
+        }
+
+        // Função para alternar o menu dropdown do idioma
+        function toggleDropdown() {
+            const dropdown = document.getElementById('lang-dropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // Função para fechar o dropdown (usada ao selecionar um idioma)
+        function closeDropdown() {
+            const dropdown = document.getElementById('lang-dropdown');
+            dropdown.classList.remove('active');
+        }
+
+        // Fecha o dropdown se o usuário clicar fora dele
+        document.addEventListener('click', (event) => {
+            const toggle = document.getElementById('lang-menu-toggle');
+            const dropdown = document.getElementById('lang-dropdown');
+            if (!toggle.contains(event.target) && dropdown.classList.contains('active')) {
+                closeDropdown();
+            }
+        });
+
+        // Inicializa o idioma como Português
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('pt');
+        });
+
+        // NOTA: Os links foram preenchidos com placeholders de exemplo.
+        // O cliente deve substituí-los no código, conforme indicado abaixo:
+        // [LINK DO YOUTUBE]    -> https://www.youtube.com/watch?v=example-concert
+        // [LINK DO APLICATIVO] -> https://app.example.com/autism-platform
+        // [LINK DO SIMULADOR]  -> https://sim.example.com/solar-system-ai
+        // [LINK DO GITHUB]     -> https://github.com/DalaManico/repos
+    </script>
+</body>
+</html>
+
